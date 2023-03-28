@@ -26,7 +26,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/smmalik3/justDaNotes',
   footer: {
-    text: 'Just Da Notes',
+    text: 'Copyright © Salman Malik 2023',
   },
 }
 
