@@ -9,5 +9,11 @@
     "type": "page",
     "href": "https://www.salmanmalik.co/contact.html",
     "newWindow": true
+  },
+  "main": {
+    "title": "Main ↗",
+    "type": "page",
+    "href": "https://www.salmanmalik.co",
+    "newWindow": true
   }
 }
