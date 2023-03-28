@@ -1,5 +1,20 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+//Google Tag Manager Library 
+import Analytics from 'analytics'
+import googleTagManager from '@analytics/google-tag-manager'
+
+const analytics = Analytics({
+  app: 'devsite',
+  plugins: [
+    googleTagManager({
+      containerId: 'GTM-MFXFZ7V'
+    })
+  ]
+})
+
+/* Track a page view */
+analytics.page()
 
 const config: DocsThemeConfig = {
   logo: <span>Just Da Notes</span>,
@@ -11,7 +26,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/smmalik3/justDaNotes',
   footer: {
-    text: 'Just Da Notes Repo',
+    text: 'Just Da Notes',
   },
 }
 
