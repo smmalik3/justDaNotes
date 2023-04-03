@@ -20,9 +20,6 @@ analytics.page()
 
 
 const config: DocsThemeConfig = {
-  head: (
-    
-    ),
   logo: <span>Just Da Notes</span>,
   project: {
     link: 'https://github.com/smmalik3/justDaNotes',
@@ -40,7 +37,7 @@ const config: DocsThemeConfig = {
     text: ' '
   },
   feedback: {
-    content: 'Question? Give me feedback →',
+    content: 'Questions? Give me feedback →',
     labels: 'feedback'
   },
 }
