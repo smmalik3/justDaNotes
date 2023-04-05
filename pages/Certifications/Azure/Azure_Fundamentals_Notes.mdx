@@ -1,3 +1,403 @@
-# Satori
+# Azure Fundamentals Training Notes
 
-Satori (悟り) is a Japanese Buddhist term for awakening, "comprehension; understanding".
+These notes are from the Deloitte/Microsoft training and covers material specifically on the AZ-900 Certification Exam
+
+	## Cloud computing
+        - These are general characteristics of **ALL** cloud providers:
+		    - Compute
+		    - Networking
+		    - Storage
+	## Cloud model comparison
+		- Public Cloud
+			- No capital expenditures to scale up
+			- Apps can be quickly provisioned
+			- Only pay for what you use
+		- Private Cloud
+			- Hardware must be purchased for startup and maintenance
+			- Orgs have total control over resources and security
+			- Orgs are responsible for hardware maintenance and updates
+		- Hybrid Cloud
+			- Most flexible
+			- Orgs determine where to run apps
+			- Orgs control security, compliance, and legal requirements
+	## CapEx - OpEx
+		- Capital Expenditure
+			- Up front cost of physical infrastructure
+			- Costs reduce over time
+		- Operational Expenditure
+			- Spend on products and services as needed, pay as you go
+			- Get billed immediately
+	## Consumption Based Model
+		- Better cost prediction
+		- Prices for individual resources and services are provided
+		- Billing is based on actual usage
+	## Cloud Benefits
+		- High Availability
+			- Based on SLAs - www.azure.cn/en-us/support/sla/summary/
+		- Scalability
+			- Expand hardware performance, upping CPU, RAM, storage, et-, can add/remove resources, can add/remove servers
+			- Scale-out/Horizontal Scaling --  continue adding additional servers
+			- Scale-up/Vertical Scaling -- adding more resources to existing server
+		- Predictable
+			- Performance and cost are what you would expect
+		- Governance
+		- Elasticity
+			- Similar to scalability. Costs around scalability.
+		- Reliability
+			- How reliable are your services/servers, SLA - 24/7 service, what infrastructure azure provides you with making the resources reliabl- Reliability is in conjunction with SLAs
+		- Security
+		- Manageability
+			- Monitoring - Alerts, Performance metrics for resources on Azure, et-
+		- Agility means that you can deploy and configure cloud-based resources quickly as app requirements chang- 
+		- Scalability means that you can add RAM, CPU, or entire virtual machines to a configuration. 
+		- Elasticity means that you can configure cloud-based apps to take advantage of autoscaling, so apps always have the resources they nee- 
+		- High availability means that cloud-based apps can provide a continuous user experience with no apparent downtime, even when things go wron-
+
+	1. Management Groups - IT
+		- Subscriptions - DEV, TEST, UAT, PROD, et- 
+			- Resource Groups -  A resource group is a container that holds all your resources
+				1) Resources - Website, API, SQL Database, Storage Account. 
+					a) A resource can only be used in one resource group, it can be moved to another resource group but will be removed from the one it was in initially
+					
+## Cloud Service Types
+	1. Infrastructure as a Service (IaaS)
+		- Pay as you go - most flexible cloud service
+		- Take more responsibility for resources, you configure and manage the hardware for your application
+		- These are managed by Microsoft
+			- Servers and Storage
+			- Networking firewalls/Security
+			- Datacenter physical plant/building
+	2. Platform as a Service (PaaS)
+		- Focus on app dev
+		- Platform management is handled by cloud provider
+		- These are managed by Microsoft
+			- Servers and Storage
+			- Networking firewalls/Security
+			- Datacenter physical plant/building
+			- OS
+			- Dev tools, database management, business analytics
+	3. Software as a Service (SaaS)
+		- Pay as you go pricing model
+		- Users pay for the software they use on a subscription model
+		- These are managed by Microsoft, -- Microsoft 365
+			- Servers and Storage
+			- Networking firewalls/Security
+			- Datacenter physical plant/building
+			- OS
+			- Dev tools, database management, business analytics
+			- Actual application and maintenance and updates of application
+
+## Azure Regions and Resources
+	1. Azure Regions
+		- Not all services are in all areas
+		- Microsoft tests new services in one or two regions before enabling it in the rest of the regions
+	2. Availability Zones
+		- Provides protection against downtime due to datacenter failure
+		- Physically separate data centers within the same region
+		- Each datacenter is equipped with independent power, cooling, and networking
+		- Connected through private fiber-optic networks
+	3. Region Pairs
+		- At least 300 miles of separation between region pairs
+		- Automatic replication for some services
+		- Prioritized recovery in the event of outage
+		- Updates are rolled out sequentially to minimize downtime
+		- www.ak-ms/PairedRegions
+	4. Azure Sovereign Regions (US Government services)
+	5. Azure China Regions
+	6. Azure Resources
+		- Virtual Machines
+		- Storage Accounts
+		- Virtual Networks
+		- App Services
+		- SQL Databases
+		- Functions
+	7. Resource Groups - A container for resources
+		- Resources can exist in only one resource group
+		- Resources can exist in different regions
+		- Resources can be moved to different resource groups
+		- Applications can utilize multiple resource groups
+	8. Azure pricing
+		- Azure Price calculator - https://azur-microsoft.com/en-us/pricing/calculator/
+	9. Azure Subscriptions
+		- An Azure subscription provides you with authenticated and authorized access to Azure accounts.
+		- Billing Boundary: generate separate billing reports and invoices for each subscription
+		- Access control boundary: manage and control access to the resources that users can provision with specific subscriptions
+	10. Management Groups
+		- Management groups can include multiple Azure subscriptions
+		- Subscriptions inherit conditions applied to the management group
+		- 10,000 management groups can be supported in a single directory
+		- A management group tree can support up to six levels of depth
+	11. Virtual Machines vs. Containers
+		- VM is essentially a server, control resources and OS, can only run one OS at a time, or only one run time environment, if you need to leverage multiple run time environments, you'll need multiple VMs
+			- VMs virtualize the hardware
+			- Full control
+		- Containers - Light weight solution, containerizing apps, multiple containers can run on a single server
+			- Containers are often used to create solutions by using a microservice architecture
+			- Containers virtualize the OS
+			- -- Docker
+			- Can be orchestrated into a large cluster
+			- Portable and high performance
+	12. Azure Functions
+		- Serverless computing
+
+## Compute and Networking
+Azure compute is an on-demand computing service that provides computing resources such as disks, processors, memory, networking and operating systems
+	1. Virtual Machines
+	2. App Services
+	3. Container Instances
+	4. Azure Kubernetes Services (AKS)
+		- Container orchestrator
+	5. Azure virtual desktop
+
+## Azure Networking Services
+	1. Azure Virtual Network (VNet) enables Azure resources to communicate with each other, the internet, and on-premises networks.
+		- Public endpoints, accessible from anywhere on the internet
+		- Private endpoints, accessible only from within your network
+		- Virtual subnets, segment your network to suit your needs
+		- Network peering, connect your private networks directly together
+	2. Virtual Private Network Gateway (VPN) is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet
+		- Can send encrypted traffic between VPN and on premises network
+		- Establishing connection between Azure and on premises over the public internet
+		- Site to Site connection - Data center connected to Azure
+		- Point to Site connection - Branch office to Head office which connects to Azure
+	3. Azure Express Route extends on-premises networks into Azure over a private connection that is facilitated by a connectivity provider
+		- Dedicated connection which has better performance than VPN
+		- Landing Zone
+			- For anyone not currently in the Azure ecosystem, Microsoft sets up your building blocks to help you quickly get started with Azure, using tools like Azure Express Route or VPN.
+	4. Azure DNS
+		- Reliability and performance by leveraging a global network of DNS name servers using Anycast networks
+		- Azure DNS security is based on Azure resource manager, enabling role based access control and monitoring and logging
+		- Ease of use for managing your Azure and external resources with a single DNS service
+		- Customizable virtual networks allow you to use private, fully customized domain names in your private virtual networks
+		- Alias records supports alias record set to point directly to an Azure resource
+
+## Storage
+	1. Storage Account
+		- Storage account names can only be lower case between 3-24 characters long
+		- Need to determine naming convention based on limitations described above
+		- Storage account is a globally shared service, so coming up with unique names is important
+		- Must have a globally unique name
+		- Must have over the internet access
+		- Consider redundancy options
+	2. Storage Redundancy (Exam question)
+		- LRS - Locally redundant storage - Single datacenter in the primary region - 11 Nines
+			- Primarily used for lower environments and transient data, not really used in production unless the data is transient and you don't care if you lose it
+		- ZRS - Zone-redundant storage - Three availability zones in the primary region - 12 Nines
+		- GRS - Geo redundant storage - Single datacenter in the primary and secondary region - 16 Nines
+			- Used for production, not for lower environments
+		- GZRS - Geo-zone redundant storage - Three availability zones in the primary region and a single datacenter in secondary region - 16 Nines
+			- Used for production, not for lower environments
+	3. Azure Storage Services
+		- Containers (aka Blob)
+			- Blobs store unstructured data like CSVs, or structured data like images, audio, video, et-
+		- File Shares
+			- Can take all files sitting on your on premise file share and put it on Azure and can reference it the way you would if it was still on premise, such as --> P:
+			- Network drive on premises to Azure network drive
+		- Queues
+			- Well architected framework. Basically like a message queue, messages queue up and get processed in a FIFO manner
+		- Tables
+			- Stores key-value pairs
+		- Storage service public endpoints
+			- Blob storage
+			- Data Lake Storage Gen2
+			- Azure Files - SFTP/SMB Protocols
+			- Queue Storage
+			- Table Storage
+		- Blob - Data Lake Storage Gen2
+			- Data lake takes large volumes of data used for analytics and mission learning capabilities, blob storage can store the same data however at large volumes performance drops.
+	4. Azure Storage Access Tiers
+		- Hot - Optimized for storing data that is accessed frequently, most expensive
+		- Cool - store infrequently accessed data at least 30 days, moderately expensive
+		- Archive - rarely accessed data stored for at least 180 days (used with government stuff), least expensive
+	5. Azure Migrate
+		- Unified migration platform
+		- Range of integrated and standalone tools
+		- Assessment and migration
+		- Not used for greenfield applications (totally new applications), only for legacy applications and systems
+	6. Azure Data Box
+		- Store up to 80 terabytes of data
+		- Move your disaster recovery backups to Azure
+		- Protect your data in a rugged case during transit
+		- Migrate data out of Azure for compliance or regulatory needs
+		- Migrate data to Azure from remote locations with limited or no connectivity
+	7. File Management Options
+		- AzCopy
+			- CLI tool
+			- Copy blobs or files to or from your storage account
+			- One direction synchronization
+		- Azure Storage Explorer
+			- GUI
+			- Windows, MacOS, Linux
+			- Uses AzCopy to handle file operations
+		- Azure File Sync
+			- Synchronizes Azure and on prem files in a bidirectional manner
+			- Cloud tiering keeps frequently accessed files local, while freeing up space
+			- Rapid reprovisioning of failed local server (install and resync)
+
+## Identity, Access, and Security
+	1. Azure Active Directory (AAD) is Microsoft's cloud-based identity and access management service
+		- Used for applications that can use the modern authentication standards
+		- Authentication (employees sign-in to access resources)
+		- Single Sign On (SSO)
+		- Application Management
+		- B2B
+			- Comms between two orgs
+		- B2C Identity services
+		- Device management
+	2. Azure Active Directory Domain Services (Azure AD DS)
+		- Used for legacy applications that are not compatible with modern authentication standards
+	3. Authentication - Authorization
+		- Authentication
+			- Identifies person or service seeking to access a resource
+			- Requests legitimate access credentials
+			- Basis for creating secure identity and access control principles
+		- Authorization
+			- Determines an authenticated person's or service's level of access
+			- Defines which data they can access and what they can do with it
+		- Azure Mult-Factor Authentication
+			- Provides additional security for your identities by requiring two or more elements for full authentication
+	4. Conditional Access is used by Azure Directory to bring signals together, to make decisions, and enforce organizational policies
+		- User group Membership
+		- IP Location
+		- Device
+		- Application
+		- Risk Detection
+	5. Azure role-based access control (Azure RBAC)
+		- Fine-grained access management
+		- Segregate duties within the team and grant only the amount of access to users that they need to perform their jobs
+		- Enables access to the Azure portal and controlling access to resources
+		- Always add permissions through roles instead of user accounts
+		- AD Groups is the same as Roles, comparing on prem to cloud
+	6. Zero Trust
+		- Secure assets where they are with Zero Trust
+		- Protects assets anywhere with a central policy
+		- Don't give anyone admin access right away, assess before giving access, can provide read only access, only provide admin access for a limited time, always opt for least privilege possible
+		- Principle of least privilege (Exam)
+		- Classic approach, lock everything behind a secure network
+		- Zero trust approach, lock every resource
+	7. Defense in depth
+		- A layered approach to securing computer systems
+		- Provides multiple levels of protection
+		- Attacks against one layer are isolated from subsequent layers
+	8. Microsoft Defender for Cloud is a monitoring service that provides threat protection across both Azure and on-prem datacenters
+		- Provides security recommendations
+		- Detect and block malware
+		- Analyze and identify potential attacks
+		- Just-in-time access control for ports
+		- Dashboard tool that shows your level of protection and where to increase security
+
+## Cost, Governance, and Management
+	1. Cost Management
+		- Factors affecting cost
+			- Resource Type
+				1) Costs are resource-specific, so the usage that a meter tracks and the number of meters associated with a resource depend on the resource type
+			- Consumption
+				1) With pay-as-you-go model, consumption is one of the biggest drivers of cost
+			- Maintenance
+				1) Monitoring your Azure footprint and maintaining your environment can help you identify and mitigate costs that aren't necessary, such as shutting down (deallocating) under utilized virtual machines
+			- Geography
+				1) The same resource type can cost different amounts depending on the geographic area, so geography has an impact on Azure costs
+			- Network Traffic
+				1) While some inbound data transfers are free, outbound data or data between azure resources is impacted by billing zones
+			- Subscriptions
+				1) The type and configuration of your subscription…
+		- Azure Marketplace allows customers to find, try, purchase, and provision applications and services from hundreds of leading service providers, which are all certified
+		- Pricing Calculator is a tool that helps you estimate the cost of Azure products. The options that you can configure in the pricing calculator between products, but basic configuration options include - Used for new applications
+			- Region
+			- Tier
+			- Billing options
+			- Support options
+			- Programs and offers
+			- Azure dev/test pricing
+			- Azure Pricing Calculator - https://azur-microsoft.com/en-us/pricing/calculator/
+		- Total cost of ownership calculator (Exam) - Used for migrating legacy apps to cloud
+			- A tool to estimate cost savings you can realize by migrating to Azure
+			- A report compares the costs of on prem infrastructures with the costs of using azure products and services in the cloud
+		- Azure Cost Management
+			- Reporting - billing reports
+			- Data enrichment
+			- Budgets - set spend budget
+			- Alerting - when cost exceeds limits
+			- Recommendation - cost recommendations
+		- Tags
+			- Provides metadata for your Azure resources
+			- Logically organizes resources into a taxonomy
+	2. Governance and Compliance
+		- Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments. Development teams can quickly build trust through organizations compliance with a set of built-in components (such as networking) in order to speed up development and delivery
+			- Role assignments
+			- Policy assignments
+			- Azure resource manager templates
+				1) ARM templates = IaC, bitc-
+			- Resources groups
+		- Azure Policy helps to enforce organizational standards and to assess compliance at scal- Provides governance and resource consistency with regulatory compliance, security, cost, and management.
+			- Evaluates and identifies Azure resources that do not comply with your policies
+			- Provides built-in policy and initiative definitions, under categories such as Storage, Networking, compute, security center, and monitoring
+		- Resource Locks (Exam)
+			- Protect your azure resources from accidental deletion or modification
+			- Manage locks at subscription, resource group, or individual resource levels within azure portal
+			- Delete Lock - Can read and update, cannot delete
+			- ReadOnly Lock - Can read, cannot update or delete
+		- Service Trust Portal
+			- Get whitepapers and audit reports, it's a library for getting best practices, et-
+	3. Management and deployment tools
+		- Tools for interacting with Azure
+			- Azure portal
+			- Azure PowerShell
+			- Azure cloud shell - https://portal.azur-us/#cloudshell
+				1) CLI within the browser
+			- Azure CLI
+				1) Standalone desktop tool, CLI locally
+		- Azure Arc
+			- Extend Azure management to on-prem, multicloud, and edge
+		- Azure Resource Manager (ARM)
+			- ARM provides a management layer that enables you to create, update, and delete resources in your Azure subscription, essentially JSON IaC template
+			- When using IaC, should not make changes in azure portal since it will be overwritten next time the IaC script runs
+		- Azure Resource Manager (ARM) templates are JavaScript Object Notation (JSON) files that can be used to create and deploy Azure infrastructure without having to write programming commands
+			- Declarative syntax
+			- Repeatable results
+			- Orchestration
+			- Modular files
+			- Built-in validation
+			- Exportable code
+	4. Azure Management Tools
+		- Azure Advisor
+			- Azure Advisor is a free tool that analyzes deployed Azure resources and makes recommendations based on… 
+			- Advisor score, let's you know how things are looking in your cloud environments, can track over time how this score changes or stays the same
+			- Can show you where you can save costs:
+			- 
+			- https://portal.azur-us/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview
+			- Azure advisor analyzes deployed azure resources and makes recommendations based on best practices to optimize azure environments
+		- Azure Service Health
+			- A collection of services that keep you informed of general Azure status (broader than your Azure account, for all Azure systems and services world wide), service status that may impact you, and specific resource status that is impacting you
+			- Azure status: global view of the health of all Azure services across all Azure regions
+			- Service Health: focused view on only the services regions that you're usin- If a service is experiencing a problem in a region you're not using, it won't show up here
+			- Resource Health: tailored view of your actual azure resources, it provides information about the health of your azure resources
+		- Azure Monitor
+			- Maximizes the availability and performance of applications
+			- A comprehensive monitoring solution for collecting, analyzing, and responding to telemetry from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services.
+		- Health advisories are issues that require that you take proactive action to avoid service interruptions, such as service retirements and breaking changes. 
+			- Service issues are problems such as outages that require immediate actions.
+		- Azure Service Health 
+			- Use to find information about planned maintenance for Azure services that are critical to your organization
+			- You can drill down to the affected services, regions, and details to show how an event will affect you and what you must do. Most of these events occur without any impact to you and will not be shown. In a rare case that a reboot is required, Service Health allows you to choose when to perform the maintenance to minimize the downtime
+	
+	
+		
+		
+## Actual Exam Experience 
+	1. Taken early March 2023
+    2. 38 Questions
+	2. 45 Minutes
+	3. Passed --> Got a 760, passing score was 700
+	4. Exam was more challenging than anticipate-
+		- Similarity to practice exam = ~35%
+		- Most challenging questions were scenario based, asking if a certain set of requirements was presented, what should be the appropriate course of action
+		- Some questions around how to use resources effectively
+		- Questions on monitoring were more technical than in practice exam
+			- What resources can you use in Azure Monitor?
+				1) Function Logs
+				2) Application Insights
+	5. Some tricky questions, mostly around specific language, for example, if the term "resource" is used, identify resources in the answer.
+	6. Didn't review my answers, just submitted it.
+	7. I don't think I would have passed the exam on my first try if I wasn't regularly using Azure for the last ~2 years, some questions were just common sense based on use, others were tricky but the answer could be extrapolated based on us-
+
