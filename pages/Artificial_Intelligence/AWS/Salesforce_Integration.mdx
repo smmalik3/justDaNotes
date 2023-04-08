@@ -1,0 +1,70 @@
+# Salesforce Integration
+Here's a Node.js code snippet that demonstrates how to connect Salesforce to AWS using the AWS SDK for Node.js and the Salesforce API:
+
+```js filename="readPDF.js" copy
+const AWS = require('aws-sdk');
+const jsforce = require('jsforce');
+const fs = require('fs');
+
+// Define the AWS credentials and region
+const awsConfig = {
+  accessKeyId: 'YOUR_ACCESS_KEY_ID',
+  secretAccessKey: 'YOUR_SECRET_ACCESS_KEY',
+  region: 'YOUR_REGION'
+};
+
+// Create a new instance of the AWS S3 service
+const s3 = new AWS.S3(awsConfig);
+
+// Define the Salesforce credentials
+const sfConfig = {
+  loginUrl: 'https://login.salesforce.com',
+  username: 'YOUR_SALESFORCE_USERNAME',
+  password: 'YOUR_SALESFORCE_PASSWORD'
+};
+
+// Create a new instance of the Salesforce API
+const conn = new jsforce.Connection(sfConfig);
+
+// Authenticate with Salesforce and retrieve the PDF file from a record
+conn.login(sfConfig.username, sfConfig.password, (err, userInfo) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  // Query a record in Salesforce to retrieve the PDF file
+  conn.query('SELECT Id, Name, Body FROM Attachment WHERE Name = \'YOUR_PDF_FILE_NAME.pdf\'', (err, result) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    // Convert the base64-encoded PDF file to a binary buffer
+    const pdfFile = Buffer.from(result.records[0].Body, 'base64');
+
+    // Define the S3 bucket and key for storing the PDF file
+    const s3Bucket = 'YOUR_S3_BUCKET_NAME';
+    const s3Key = 'YOUR_S3_FILE_KEY.pdf';
+
+    // Upload the PDF file to S3
+    s3.putObject({
+      Bucket: s3Bucket,
+      Key: s3Key,
+      Body: pdfFile
+    }, (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`File uploaded to S3: ${s3Bucket}/${s3Key}`);
+      }
+    });
+  });
+});
+```
+
+In this code snippet, we first define the AWS credentials and region and create a new instance of the AWS S3 service. We then define the Salesforce credentials and create a new instance of the Salesforce API using the jsforce library.
+
+We authenticate with Salesforce and query a record to retrieve a PDF file attached to the record. We then convert the base64-encoded PDF file to a binary buffer and define the S3 bucket and key for storing the PDF file.
+
+Finally, we use the putObject method of the S3 service to upload the PDF file to S3. Note that you'll need to have the AWS SDK for Node.js and jsforce libraries installed and configured with your AWS and Salesforce credentials in order to use this code snippet. Additionally, you'll need to grant your AWS user account permissions to access the S3 bucket and the appropriate Salesforce API permissions to retrieve the PDF file.
