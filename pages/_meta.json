@@ -15,5 +15,11 @@
     "type": "page",
     "href": "https://www.salmanmalik.co",
     "newWindow": true
+  },
+  "sandbox": {
+    "title": "Sandbox ↗",
+    "type": "page",
+    "href": "https://www.sandbox.salmanmalik.co",
+    "newWindow": true
   }
 }
