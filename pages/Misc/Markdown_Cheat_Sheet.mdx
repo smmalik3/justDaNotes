@@ -108,6 +108,36 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 }
 ```
 
+### Fenced Code Block with Syntax highlighting (JSON)
+```json filename="contact_object.js" copy
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+### Fenced Code Block with Syntax highlighting (JS)
+```js filename="contact_object.js" {3} copy
+var contact = 
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+
+console.log("This is the contact object ====>>> " + contact)
+```
+
+This example also includes specific line highlighting, simply add this after the opening code block markup:
+
+``` js filename="contact_object.js" {3} copy ```
+
+To modify, keep in mind the following pattern:
+
+``` <syntax language> filename="<filename.extension>" {<desired line number to highlight>} copy ```
+
+The ```copy``` markup creates a clipboard icon in the top right corner of the code block to easily click to copy to your clipboard
 
 ### Footnote
 
