@@ -1,0 +1,37 @@
+# Arrow Functions
+
+## What are Arrow Functions?
+
+An arrow function expression is a compact alternative to a traditional function expression, with some semantic differences and deliberate limitations in usage:
+
+Arrow functions don't have their own bindings to this, arguments, or super, and should not be used as methods.
+Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.
+Arrow functions cannot use yield within their body and cannot be created as generator functions.
+
+## Breaking down Arrow Functions
+
+```js copy
+// Traditional anonymous function
+(function (a) {
+  return a + 100;
+});
+
+// 1. Remove the word "function" and place arrow between the argument and opening body bracket
+(a) => {
+  return a + 100;
+};
+
+// 2. Remove the body braces and word "return" — the return is implied.
+(a) => a + 100;
+
+// 3. Remove the parameter parentheses
+a => a + 100;
+```
+
+## General Arrow Function from
+
+```js copy
+const func = () => ({ foo: 1 });
+```
+
+The `return` is implied in arrow functions, hence it does not need to be explicitly written.
