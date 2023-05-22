@@ -1,8 +1,51 @@
-import { Callout } from 'nextra-theme-docs'
- 
-<Callout type="warning" emoji="⚠️">
-  This is a Stub.
-</Callout>
-
 # Async/Await
 
+## What is async/await?
+The async/await feature in JavaScript is used for handling promises. Before async/await, promises were handled by chaining .then and .catch methods, which could lead to code that was difficult to read and maintain, especially with complex promise chains. Async/await syntax makes it easier to write and read code that works with promises.
+
+## How to use async/await
+Here's how you can use async/await:
+
+1. **Async:** The `async` keyword is used to define an async function. An async function is a function that knows how to expect the possibility of the await keyword being used to invoke asynchronous code.
+
+``` js copy
+async function myFunc() {
+  // ...
+}
+```
+
+The async function returns a Promise. If the function has a return statement, the Promise will be resolved with that value, otherwise, the Promise will be resolved with `undefined`.
+
+2. **Await:** The `await` keyword is used in an async function to ensure that all promises returned in the function are synchronized - in other words, they wait for each promise to resolve before moving on to the next statement.
+Here is a simple example of async/await with a promise:
+
+```js copy
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+}
+
+asyncCall();
+```
+In the above code, `asyncCall` is an async function that calls the `resolveAfter2Seconds` function. The `await` keyword is used before `resolveAfter2Seconds` to wait for the promise it returns to be resolved.
+
+Output will be:
+```js copy
+calling
+(wait 2 seconds)
+resolved
+```
+
+Without the `await` keyword, `asyncCall` would log 'calling' and 'resolved' immediately, without waiting for two seconds.
+
+## Keep this in mind
+Keep in mind that the `await` keyword only works within an `async` function. If you try to use it in a regular function, you'll get a syntax error. Also, the function execution halts at the `await` expression and resumes once the promise is resolved/rejected, and then the value of the `await` expression is that resolved value.

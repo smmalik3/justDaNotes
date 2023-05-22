@@ -5,3 +5,51 @@ import { Callout } from 'nextra-theme-docs'
 </Callout>
 
 # Map Functions
+##What is a map function?
+
+The `map()` function in JavaScript is used to create a new array with the results of calling a provided function on every element in the original array. It calls the provided function once for each element in the array, in order.
+
+Here's a basic example:
+```js copy
+const numbers = [1, 2, 3, 4, 5];
+
+const squaredNumbers = numbers.map(function(num) {
+  return num * num;
+});
+
+console.log(squaredNumbers); // Outputs: [1, 4, 9, 16, 25]
+```
+In this example, the `map()` function is called on the `numbers` array. The function passed to `map()` takes each number in the `numbers` array, squares it, and the squared result is added to a new array. This new array is then returned and stored in the `squaredNumbers` variable.
+
+The `m`ap()` function does not change the original array, it creates a new array. This is one of the characteristics of a "pure" function, which is a function that does not cause side effects, like changing input values.
+
+## Arrow functions combined with map functions
+You can also use arrow functions with `map()`, like so:
+```js copy
+const numbers = [1, 2, 3, 4, 5];
+
+const squaredNumbers = numbers.map(num => num * num);
+
+console.log(squaredNumbers); // Outputs: [1, 4, 9, 16, 25]
+```
+This does exactly the same thing as the previous example, but the function is written as an arrow function, which is a shorter syntax and automatically binds `this` to the surrounding code's context.
+
+## Additional parameters
+In addition, `map()` passes three arguments to the provided function:
+
+The current element being processed.
+(optional) The index of the current element being processed.
+(optional) The array that `map()` was called upon.
+Here's an example that uses these additional parameters:
+```js copy
+const numbers = [1, 2, 3, 4, 5];
+
+const moreNumbers = numbers.map((num, index, array) => {
+  console.log(`Current value: ${num}`);
+  console.log(`Index: ${index}`);
+  console.log(`Array: ${array}`);
+  return num * num;
+});
+```
+
+In this case, the function provided to `map()` is logging the current value, its index, and the original array to the console before returning the squared number.

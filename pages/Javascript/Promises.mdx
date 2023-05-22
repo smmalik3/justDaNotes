@@ -1,7 +1,74 @@
-import { Callout } from 'nextra-theme-docs'
- 
-<Callout type="warning" emoji="⚠️">
-  This is a Stub.
-</Callout>
-
 # Promises
+
+## What are promises?
+A Promise in JavaScript represents a value that may not be available yet but will be available in the future, or it will never be available because of an error. Promises are a way to handle asynchronous operations without blocking the rest of your code.
+
+## Components of a promise
+A Promise is an object that has three states:
+
+1. **Pending:** The Promise's outcome hasn't yet been determined, because the asynchronous operation that will produce its result hasn't completed yet.
+2. **Fulfilled:** The asynchronous operation has completed, and the Promise has a resulting value.
+3. **Rejected:** The asynchronous operation failed, and the Promise will never be fulfilled. In the rejected state, a Promise has a reason that indicates why the operation failed.
+Here's a basic example of creating a new Promise:
+```js copy
+let promise = new Promise(function(resolve, reject) {
+  // a mock async action using setTimeout
+  setTimeout(function() {
+    resolve('Done!');
+  }, 1000);
+});
+
+promise.then(function(value) {
+  console.log(value);
+  // "Done!"
+});
+```
+
+In this example, `new Promise` is used to create a Promise that represents a value that will be available in the future. This Promise is set to resolve with the value 'Done!' after 1 second. The `then` function is called to handle the resolved value of the Promise when it becomes available.
+
+## Error handling in promises
+You can also handle errors or Promise rejections with the catch function:
+```js copy
+let promise = new Promise(function(resolve, reject) {
+  // a mock async action using setTimeout
+  setTimeout(function() {
+    reject('Error!');
+  }, 1000);
+});
+
+promise.then(function(value) {
+  console.log(value);
+}).catch(function(error) {
+  console.error(error);
+  // "Error!"
+});
+```
+In this case, the Promise is rejected with the value 'Error!' after 1 second. The `catch` function is called to handle the error when it occurs.
+
+## Chaining promises
+Promises can be chained together to handle complex asynchronous code:
+```js copy
+let promise1 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve('First promise');
+  }, 1000);
+});
+
+let promise2 = function(message) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve(message + ' -> Second promise');
+    }, 1000);
+  });
+};
+
+promise1.then(function(result) {
+  return promise2(result);
+}).then(function(result) {
+  console.log(result); // "First promise -> Second promise"
+}).catch(function(error) {
+  console.error(error);
+});
+```
+
+In this case, `promise2` isn't created until `promise1` has been resolved. This allows for sequential, asynchronous operations.
