@@ -5,14 +5,14 @@ Important things to keep in mind when engineering a prompt for Generative AI Too
 	1. Prompts must be clear and concise
 	2. Prompts must be direct, should not use inferring language
 	3. Prompts should be logical
-		a. Can make comparator statements in prompts
-			i. Take this <input1> and compare with this <input2>
-		b. Can take this a step further and after asking for a comparison, ask a specific question for analysis
-			Take this <input1> and compare with this <input2>, does input2 have any relevance to input1?
-		c. Going beyond two logical steps in a prompt can often break the response
-			i. Take this <input 1>, if input1 is a resume compare with this <input 2>, does input2 have any relevance to input1? If input1 is not a resume, tell me it's not a resume.
-				1. The above will often break and return the last successful response (gpt 3.5 specific, have not tested with gpt-4). This looks like a caching issue, but it's actually not, it's just GPT "guessing" that you want a response similar or identical to what it gave you the last time.
+		- Can make comparator statements in prompts
+			- Take this `input1` and compare with this `input2`
+		- Can take this a step further and after asking for a comparison, ask a specific question for analysis
+			Take this `input1` and compare with this `input2`, does input2 have any relevance to input1?
+		- Going beyond two logical steps in a prompt can often break the response
+			- Take this `input1`, if input1 is a resume compare with this `input2`, does input2 have any relevance to input1? If input1 is not a resume, tell me it's not a resume.
+				- The above will often break and return the last successful response (gpt 3.5 specific, have not tested with gpt-4). This looks like a caching issue, but it's actually not, it's just GPT "guessing" that you want a response similar or identical to what it gave you the last time.
 	4. Future case prompt scenarios
-		a. As GPT continues to enhance, asking multi-tiered logical questions should become better
-		b. Currently maintaining GPT prompt memory is a little arduous but certainly possible, anticipating this will become nearly automatic down the road.
+		- As GPT continues to enhance, asking multi-tiered logical questions should become better
+		- Currently maintaining GPT prompt memory is a little arduous but certainly possible, anticipating this will become nearly automatic down the road.
 	5. Generative AI is wild and can be super helpful, but after a ton of stress testing, it became clear that when asking technical or more complicated questions without proper context and proper understanding of the subject matter, it will either lead you astray or will not be as helpful as it ought to be. Having a base understanding of what you are asking it will prove to deliver the best results.
