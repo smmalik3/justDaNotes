@@ -1,0 +1,32 @@
+# Image to Text App Premise
+
+## Overview
+This app will allow an image that contains text to be uploaded, the response will return the raw text found within the image. The returned text can be copied or sent via email via button click.
+
+## Architecture
+
+### Front End
+The front end will be built using Next.js and Tailwind CSS
+
+### Backend
+AWS S3, AWS Lambda, and AWS Textract.
+
+1. File will be uploaded to an S3 bucket
+2. S3 bucket triggers a lambda function that sends the file to Textract
+3. The same lambda receives the response from Textract and saves it into a DynamoDB
+4. Another lambda (or the same lambda as in step 2 and 3) will take the response from Textract (either the real time reponse or the saved response in DynamoDB) and display it on the front end.
+
+## Deployment
+This app will be deployed using Amplify, using the standard Amplify CLI. However, this app will be terraformed for deployment via terraform.
+
+## ChatGPT Prompt
+
+Generate a next.js app that uses Tailwind CSS with the following parameters:
+
+1. Clean responsive UI with all HTML elements centered on the screen.
+2. Title of app should be "Get Text From Image"
+3. Below the title should be a tile that has a drop shadow towards the bottom right corner 
+ underneath it, with text that says, "Please upload image file" With a button beneath this text that says "Upload" The button color should be green.
+
+The backend will be handled by AWS Lambdas
+
