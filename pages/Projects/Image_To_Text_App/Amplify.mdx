@@ -1,0 +1,35 @@
+# Amplify
+
+## Scratch Pad
+
+✔ Initialized provider successfully.
+✅ Initialized your environment successfully.
+
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+- "amplify status" will show you what you've added already and if it's locally configured or deployed
+- "amplify add <category>" will allow you to add features like user login or a backend API
+- "amplify push" will build all your local backend resources and provision it in the cloud
+- "amplify console" to open the Amplify Console and view your project status
+- "amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify push" to deploy everything
+
+## Under the hood
+
+Amplify uses CloudFormation under the hood to provision and deploy backend components such as Lambdas, S3 buckets, DynamoDBs (NoSQL DBs), etc.
+
+## Current thoughts
+
+**Current thoughts:** Can I get Amplify to use Terraform templates instead of CloudFormation templates (CFT)? If not, is this a better way of managing deployment and provisioning of architecture when used AWS? 
+Gut feeling, want to use Terraform over CFTs. But, deployment process will break down and be less manageable if Amplify doesn't allow for Terraform templates.
+
+**Updated thoughts**: The way Amplify does things is starting to annoy me as far as the backend is concerned. I have a basic app up and running and a couple lambdas deployed, but the amplify CLI won't let me configure S3 storage without enabling auth, which is like 'wut?'
+
+So... I am thinking of totally scrapping what I have and doing the front end separate from the backend and just making an API callout from the front end to the backend without Amplify knowing a backend exists. Will provision and deploy the backend with Terraform. Will build and deploy the front end with Amplify and Next.js
+
+Spent 3 hours on the above, I knew *what* I wanted to build going into this, but now I know *how* I want to build moving forward.
+
+I'm probably using Amplify wrong, but it's annoyed me enough to completely ignore using it for the backend.
